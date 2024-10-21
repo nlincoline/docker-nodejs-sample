@@ -20,11 +20,14 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .  # Change this line to refer to the current context
+          file: Dockerfile
           target: test
           load: true
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: .
+          file: Dockerfile
           platforms: linux/amd64,linux/arm64/v8
           push: true
           target: prod
